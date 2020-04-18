@@ -29,16 +29,6 @@
 
 
     <style>
-        .bImg {
-            background-image:url("{% static 'img1.jpg' %}");
-            height: 50vh;
-            background-repeat: no-repeat, repeat;
-            background-size: cover;
-            ;
-
-
-        }
-
         .bd-placeholder-img {
             font-size: 1.125rem;
             text-anchor: middle;
@@ -62,36 +52,16 @@
 
     <main role="main">
 
-        <section class="jumbotron bImg text-center">
+        <section class="jumbotron  text-center">
             <div class="container head1">
-                <h1>Divyanshu Kr Tiwari</h1>
-                <p class="lead text-muted">Hi, My name is Divyanshu kumar Tiwari. I enjoy making websites and apps.</p>
+                <h2>Job Detail</h2>
+                <p class="lead text-muted">{{ job.summary }}</p>
+                <img src="{{ job.image.url }}" height="300">
                 <p>
-                    <a href="https://github.com/divyanshukrtiwari" class="btn btn-primary my-2">Checkout my Github</a>
-                    <a href="mailto:divyanshukrtiwari09@gmail.com" class="btn btn-secondary my-2">Send an Email</a>
+                    <a href="{% url 'home' %}" class="btn btn-primary my-2">Back</a>
                 </p>
             </div>
         </section>
-
-        <div class="album py-5 bg-light">
-            <div class="container">
-                <div class="row">
-                    {% for job in jobs.all %}
-                    <div class="col-md-4">
-                        <div class="card mb-4 shadow-sm">
-                            <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="{{ job.image.url }}"></img>
-                            <div class="card-body">
-                                <p class="card-text"> {{ job.summary }}</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    {% endfor %}
-                </div>
-            </div>
-        </div>
-
     </main>
 
     <script src="{% static 'jquery-3.5.0.min.js' %}"></script>
